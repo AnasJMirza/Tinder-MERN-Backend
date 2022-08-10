@@ -2,17 +2,19 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import Cards from './schema.js'
+import dotenv from 'dotenv';
 
 // App Confuguration
 
 const app = express();
+dotenv.config()
 const port = process.env.PORT || 5000;
-const connectionURL = `mongodb+srv://admin:admin123@cluster0.h7i4u5y.mongodb.net/tinderdb?retryWrites=true&w=majority`
 
 // MuiddleWare
 
 app.use(express.json());
 app.use(cors());
+
 
 // DB Config
 
@@ -22,7 +24,7 @@ app.use(cors());
 //     useUnifiedTopology: true
 // })
 
-mongoose.connect(connectionURL, { autoIndex: false });
+mongoose.connect(process.env.DB, { autoIndex: false });
 
 // API Endpoints
 

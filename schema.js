@@ -6,4 +6,4 @@ const schema = new Schema({
     imgURL: String,
   });
 
-export default mongoose.model("Cards", schema)
+export default mongoose.model("Cards", schema);
